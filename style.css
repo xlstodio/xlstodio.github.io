@@ -360,7 +360,7 @@ a {
     font-weight: 900;
     font-size: 23px;
 
-    background: linear-gradient(145deg, #ef4444, #4c1d95);
+    background: linear-gradient(145deg, #ef4444, #991b1b);
 
     box-shadow: 0 12px 35px rgba(124,58,237,0.2);
 }
@@ -457,7 +457,7 @@ a {
     border-radius: 10px;
 
     background: rgba(124,58,237,0.15);
-    color: #c4b5fd;
+    color: #fca5a5;
 
     font-size: 12px;
     font-weight: 700;
