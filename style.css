@@ -53,7 +53,7 @@ a {
 }
 
 .logo span {
-    color: #8b5cf6;
+    color: #ef4444;
 }
 
 .navbar nav {
@@ -112,7 +112,7 @@ a {
 }
 
 .small-title {
-    color: #8b5cf6;
+    color: #ef4444;
     font-size: 13px;
     font-weight: 700;
     letter-spacing: 5px;
@@ -132,7 +132,7 @@ a {
     background: linear-gradient(
         90deg,
         #ffffff,
-        #a78bfa,
+        #f87171,
         #ffffff
     );
 
@@ -175,13 +175,13 @@ a {
 }
 
 .btn.primary {
-    background: #7c3aed;
+    background: #dc2626;
     box-shadow: 0 10px 35px rgba(124,58,237,0.28);
 }
 
 .btn.primary:hover {
     transform: translateY(-3px);
-    background: #8b5cf6;
+    background: #ef4444;
 }
 
 .btn.secondary {
@@ -211,7 +211,7 @@ a {
 }
 
 .section-title span {
-    color: #8b5cf6;
+    color: #ef4444;
     font-size: 13px;
     font-weight: 800;
 }
@@ -267,7 +267,7 @@ a {
 
 .worldshift-logo small {
     display: block;
-    color: #8b5cf6;
+    color: #ef4444;
     font-size: 11px;
     letter-spacing: 4px;
     margin-bottom: 12px;
@@ -295,7 +295,7 @@ a {
 }
 
 .tag {
-    color: #a78bfa;
+    color: #f87171;
     font-size: 11px;
     font-weight: 800;
     letter-spacing: 1px;
@@ -360,7 +360,7 @@ a {
     font-weight: 900;
     font-size: 23px;
 
-    background: linear-gradient(145deg, #8b5cf6, #4c1d95);
+    background: linear-gradient(145deg, #ef4444, #4c1d95);
 
     box-shadow: 0 12px 35px rgba(124,58,237,0.2);
 }
@@ -383,7 +383,7 @@ a {
 
 .text-button {
     display: inline-block;
-    color: #a78bfa;
+    color: #f87171;
     font-size: 13px;
     font-weight: 700;
     margin-top: 15px;
@@ -427,7 +427,7 @@ a {
 
     border-radius: 14px;
 
-    background: #7c3aed;
+    background: #dc2626;
 
     font-size: 11px;
     font-weight: 900;
@@ -466,7 +466,7 @@ a {
 }
 
 .download-button:hover {
-    background: #7c3aed;
+    background: #dc2626;
     color: white;
 }
 
