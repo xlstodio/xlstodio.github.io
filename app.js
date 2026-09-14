@@ -20,7 +20,7 @@ async function loadProducts() {
         }
 
         const products = await response.json();
-        console.log("XL Studios products:", products);
+        console.log("XL Studios products:", products); alert("Supabase OK: " + products.length + " product(s)");
 
         let section = document.getElementById("supabase-products");
 
