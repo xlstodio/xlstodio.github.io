@@ -1,5 +1,5 @@
 const SUPABASE_URL = "https://gzljjxnytibmhcozwdkx.supabase.co";
-const SUPABASE_KEY = "sb_publishable_r7nWFSXUjtfYT_A49il7XA_5jUitOoR";
+const SUPABASE_KEY = "sb_publishable_7HyHJv5CiaCNU0Af0adR1g_sKC53ayq";
 
 async function loadProducts() {
     try {
@@ -10,6 +10,7 @@ async function loadProducts() {
                 headers: {
                     "apikey": SUPABASE_KEY,
                     "Authorization": `Bearer ${SUPABASE_KEY}`,
+                    "Accept-Profile": "public",
                     "Content-Type": "application/json"
                 }
             }
