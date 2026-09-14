@@ -3,10 +3,265 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>سایت من</title>
+
+    <title>XL Studios</title>
+    <meta name="description" content="XL Studios - Games, Apps and Creative Projects">
+
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    <h1>سلام 👋</h1>
-    <p>این سایت من است!</p>
+
+<header class="navbar">
+    <div class="logo">
+        <span>XL</span> STUDIOS
+    </div>
+
+    <nav>
+        <a href="#home">خانه</a>
+        <a href="#games">بازی‌ها</a>
+        <a href="#apps">برنامه‌ها</a>
+        <a href="#downloads">دانلودها</a>
+    </nav>
+</header>
+
+
+<main>
+
+<section id="home" class="hero">
+
+    <div class="hero-glow"></div>
+
+    <div class="hero-content">
+
+        <div class="small-title">WELCOME TO</div>
+
+        <h1>
+            XL <span>STUDIOS</span>
+        </h1>
+
+        <p>
+            بازی‌ها، برنامه‌ها و پروژه‌های ساخته‌شده توسط XL Studios
+        </p>
+
+        <div class="hero-buttons">
+            <a href="#games" class="btn primary">
+                🎮 مشاهده بازی‌ها
+            </a>
+
+            <a href="#apps" class="btn secondary">
+                🧩 برنامه‌ها
+            </a>
+        </div>
+
+    </div>
+
+</section>
+
+
+<section id="games" class="section">
+
+    <div class="section-title">
+        <span>01</span>
+        <h2>بازی‌ها</h2>
+    </div>
+
+    <div class="game-card">
+
+        <div class="game-image">
+            <div class="worldshift-logo">
+                <small>XL STUDIOS</small>
+                <strong>WORLDSHIFT</strong>
+                <span>THE WORLD IS NOT WHAT IT SEEMS</span>
+            </div>
+        </div>
+
+        <div class="game-info">
+
+            <div class="tag">ADVENTURE • 3D</div>
+
+            <h3>WorldShift</h3>
+
+            <p>
+                وارد جهانی شوید که قوانینش دیگر مثل قبل نیست.
+                WorldShift یک ماجراجویی سه‌بعدی ساخته‌شده توسط XL Studios است.
+            </p>
+
+            <div class="game-buttons">
+                <a href="#downloads" class="btn primary">
+                    دانلود
+                </a>
+
+                <a href="#" class="btn secondary">
+                    اطلاعات بیشتر
+                </a>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<section id="apps" class="section">
+
+    <div class="section-title">
+        <span>02</span>
+        <h2>برنامه‌ها</h2>
+    </div>
+
+    <div class="cards">
+
+        <article class="app-card">
+
+            <div class="app-icon catana">
+                3D
+            </div>
+
+            <div class="app-content">
+                <div class="tag">3D TOOLS</div>
+
+                <h3>CatanaCraft 3D Model</h3>
+
+                <p>
+                    ابزار مدل‌سازی و کار با پروژه‌های سه‌بعدی.
+                </p>
+
+                <a href="#" class="text-button">
+                    مشاهده برنامه ←
+                </a>
+            </div>
+
+        </article>
+
+
+        <article class="app-card">
+
+            <div class="app-icon frmat">
+                F
+            </div>
+
+            <div class="app-content">
+                <div class="tag">3D FORMAT</div>
+
+                <h3>FRMAT</h3>
+
+                <p>
+                    ابزار تبدیل و مدیریت فرمت‌های مدل سه‌بعدی.
+                </p>
+
+                <a href="#" class="text-button">
+                    مشاهده برنامه ←
+                </a>
+            </div>
+
+        </article>
+
+    </div>
+
+</section>
+
+
+<section id="downloads" class="section">
+
+    <div class="section-title">
+        <span>03</span>
+        <h2>دانلودها</h2>
+    </div>
+
+    <div class="download-list">
+
+        <div class="download-card">
+
+            <div class="file-icon">APK</div>
+
+            <div class="file-info">
+                <h3>WorldShift</h3>
+                <p>Android • APK</p>
+            </div>
+
+            <a href="#" class="download-button">
+                دانلود
+            </a>
+
+        </div>
+
+
+        <div class="download-card">
+
+            <div class="file-icon tool">APP</div>
+
+            <div class="file-info">
+                <h3>CatanaCraft 3D Model</h3>
+                <p>Android • Application</p>
+            </div>
+
+            <a href="#" class="download-button">
+                دانلود
+            </a>
+
+        </div>
+
+
+        <div class="download-card">
+
+            <div class="file-icon tool">F</div>
+
+            <div class="file-info">
+                <h3>FRMAT</h3>
+                <p>Android • Application</p>
+            </div>
+
+            <a href="#" class="download-button">
+                دانلود
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+</main>
+
+
+<footer>
+
+    <div class="footer-logo">
+        XL STUDIOS
+    </div>
+
+    <p>
+        ساخته‌شده با ❤️ توسط XL Studios
+    </p>
+
+    <span>
+        © 2026 XL Studios
+    </span>
+
+</footer>
+
+
+<script>
+const cards = document.querySelectorAll(".game-card, .app-card, .download-card");
+
+const observer = new IntersectionObserver((entries) => {
+
+    entries.forEach(entry => {
+
+        if (entry.isIntersecting) {
+            entry.target.classList.add("show");
+        }
+
+    });
+
+}, {
+    threshold: 0.12
+});
+
+cards.forEach(card => observer.observe(card));
+</script>
+
 </body>
 </html>
