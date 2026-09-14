@@ -6,9 +6,11 @@ async function loadProducts() {
         const response = await fetch(
             `${SUPABASE_URL}/rest/v1/products?select=*`,
             {
+                method: "GET",
                 headers: {
-                    apikey: SUPABASE_KEY,
-                    Authorization: `Bearer ${SUPABASE_KEY}`
+                    "apikey": SUPABASE_KEY,
+                    "Authorization": `Bearer ${SUPABASE_KEY}`,
+                    "Content-Type": "application/json"
                 }
             }
         );
@@ -21,78 +23,125 @@ async function loadProducts() {
 
         console.log("XL Studios products:", products);
 
-        let container = document.getElementById("products-container");
+        let section = document.getElementById("supabase-products");
 
-        if (!container) {
-            container = document.createElement("div");
-            container.id = "products-container";
-            document.body.appendChild(container);
+        if (!section) {
+            section = document.createElement("section");
+            section.id = "supabase-products";
+            section.className = "section";
+
+            section.innerHTML = `
+                <div class="section-title">
+                    <span>02</span>
+                    <h2>محصولات منتشرشده</h2>
+                </div>
+
+                <div id="products-container"></div>
+            `;
+
+            const gamesSection = document.getElementById("games");
+
+            if (gamesSection) {
+                gamesSection.after(section);
+            } else {
+                document.body.appendChild(section);
+            }
         }
+
+        const container =
+            document.getElementById("products-container");
 
         container.innerHTML = "";
 
         if (products.length === 0) {
-            container.innerHTML = "<p>هنوز محصولی منتشر نشده است.</p>";
+            container.innerHTML =
+                "<p>هنوز محصولی منتشر نشده است.</p>";
             return;
         }
 
         products.forEach(product => {
-            const card = document.createElement("div");
 
+            const card = document.createElement("div");
             card.className = "game-card";
+
+            const name =
+                escapeHTML(product.name || "بدون نام");
+
+            const version =
+                escapeHTML(product.version || "");
+
+            const description =
+                escapeHTML(product.description || "");
+
+            let buttons = "";
+
+            if (product.apk_url) {
+                buttons += `
+                    <a
+                        class="btn primary"
+                        href="${product.apk_url}"
+                        target="_blank"
+                        rel="noopener">
+                        دانلود Android
+                    </a>
+                `;
+            }
+
+            if (product.exe_url) {
+                buttons += `
+                    <a
+                        class="btn secondary"
+                        href="${product.exe_url}"
+                        target="_blank"
+                        rel="noopener">
+                        دانلود Windows
+                    </a>
+                `;
+            }
+
+            if (product.linux_url) {
+                buttons += `
+                    <a
+                        class="btn secondary"
+                        href="${product.linux_url}"
+                        target="_blank"
+                        rel="noopener">
+                        دانلود Linux
+                    </a>
+                `;
+            }
+
+            if (product.zip_url) {
+                buttons += `
+                    <a
+                        class="btn secondary"
+                        href="${product.zip_url}"
+                        target="_blank"
+                        rel="noopener">
+                        دانلود ZIP
+                    </a>
+                `;
+            }
 
             card.innerHTML = `
                 <div class="game-info">
 
-                    <h2>${escapeHTML(product.name || "")}</h2>
+                    <div class="tag">
+                        XL STUDIOS
+                    </div>
+
+                    <h3>${name}</h3>
 
                     <p>
-                        نسخه:
-                        ${escapeHTML(product.version || "")}
+                        نسخه ${version}
                     </p>
 
                     <p>
-                        ${escapeHTML(product.description || "")}
+                        ${description}
                     </p>
 
                     <div class="game-buttons">
-
-                        ${
-                            product.apk_url
-                            ? `<a class="btn primary"
-                                  href="${product.apk_url}">
-                                  دانلود Android
-                               </a>`
-                            : ""
-                        }
-
-                        ${
-                            product.exe_url
-                            ? `<a class="btn secondary"
-                                  href="${product.exe_url}">
-                                  دانلود Windows
-                               </a>`
-                            : ""
-                        }
-
-                        ${
-                            product.linux_url
-                            ? `<a class="btn secondary"
-                                  href="${product.linux_url}">
-                                  دانلود Linux
-                               </a>`
-                            : ""
-                        }
-
-                        ${
-                            product.zip_url
-                            ? `<a class="btn secondary"
-                                  href="${product.zip_url}">
-                                  دانلود ZIP
-                               </a>`
-                            : ""
-                        }
-
+                        ${buttons}
                     </div>
 
                 </div>
@@ -102,15 +151,11 @@ async function loadProducts() {
         });
 
     } catch (error) {
-        console.error("Supabase error:", error);
 
-        const container =
-            document.getElementById("products-container");
-
-        if (container) {
-            container.innerHTML =
-                "<p>خطا در اتصال به سرور.</p>";
-        }
+        console.error(
+            "XL Studios / Supabase error:",
+            error
+        );
     }
 }
 
@@ -120,4 +165,11 @@ function escapeHTML(text) {
     return div.innerHTML;
 }
 
-loadProducts();
+if (document.readyState === "loading") {
+    document.addEventListener(
+        "DOMContentLoaded",
+        loadProducts
+    );
+} else {
+    loadProducts();
+}
